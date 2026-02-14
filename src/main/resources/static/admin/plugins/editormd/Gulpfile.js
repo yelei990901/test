@@ -305,32 +305,13 @@ gulp.task("cm-addon", function() {
                 .pipe(gulp.dest(codeMirror.path.dist))
                 .pipe(notify({ message: "codemirror-addon.js task complete" }));
 }); 
-/*
-gulp.task("jsdoc", function(){
-    return gulp.src(["./src/editormd.js", "README.md"])
-               .pipe(jsdoc.parser())
-               .pipe(jsdoc.generator("./docs/html"));
-});
 
-gulp.task("jsdoc2md", function() {
-    return gulp.src("src/js/editormd.js")
-            .pipe(jsdoc2md())
-            .on("error", function(err){
-                gutil.log(gutil.colors.red("jsdoc2md failed"), err.message);
-            })
-            .pipe(rename(function(path) {
-                path.extname = ".md";
-            }))
-            .pipe(gulp.dest("docs/markdown"));
-});
-*/
 gulp.task("watch", function() {
 	gulp.watch("scss/editormd.scss", ["scss"]);
 	gulp.watch("scss/editormd.preview.scss", ["scss", "scss2"]);
 	gulp.watch("scss/editormd.logo.scss", ["scss", "scss3"]);
 	gulp.watch("src/editormd.js", ["js", "amd"]);
 });
-
 gulp.task("default", function() {
     gulp.run("scss");
     gulp.run("scss2");
